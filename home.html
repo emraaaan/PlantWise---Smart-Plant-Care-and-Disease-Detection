@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlantWise - Smart Plant Care &amp; Disease Detection</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>body { box-sizing: border-box; }</style>
+</head>
+<body class="h-full bg-white">
+<div class="app-wrapper leaf-pattern"><!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-green-100 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16 sm:h-20"><!-- Logo -->
+<div class="flex items-center gap-2 cursor-pointer">
+<div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg">
+<svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /> <path d="M17.5 3C15.57 3 14 4.57 14
+6.5V8h-4V6.5C10 4.57 8.43 3 6.5 3S3 4.57 3 6.5C3 9.76 5.24 12.5 8 14v7h8v-7c2.76-1.5 5-4.24 5-7.5C21 4.57 19.43 3 17.5 3z" />
+</svg>
+</div><span class="font-display text-xl sm:text-2xl font-bold text-gradient">PlantWise</span>
+</div><!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-8">
+    <span class="nav-link text-gray-700 font-medium">Home</span>
+    <span class="nav-link text-gray-700 font-medium">Blog</span>
+    <span class="nav-link text-gray-700 font-medium">Community</span>
+    <span class="nav-link text-gray-700 font-medium">AI Detection</span>
+    <span class="nav-link text-gray-700 font-medium">Dashboard</span>
+</div><!-- CTA Button -->
+<div class="hidden sm:block">
+    <span class="btn-primary px-6 py-2.5 rounded-full text-white font-semibold shadow-lg inline-block"> Scan Plant 🌿 </span>
+</div><!-- Mobile Menu Button --> 
+<button class="md:hidden p-2 rounded-xl hover:bg-green-50 transition-colors">
+<svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+</div>
+</div>
+</nav><!-- ==================== HOME PAGE ==================== -->
+
+<!-- Hero Section -->
+<section class="gradient-hero relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="fade-in">
+<div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-sm mb-6"><span class="pulse-dot w-2 h-2 bg-green-500 rounded-full"></span> <span class="text-sm font-medium text-green-700">AI-Powered Plant Care</span>
+</div>
+<h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">Smart Plant Care &amp; <span class="text-gradient">Disease Detection</span></h1>
+<p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">Nurture your plants with confidence. Our AI technology identifies diseases instantly and provides expert care recommendations for healthier, happier plants.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+    <span class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg shadow-xl inline-block text-center cursor-default"> Start Free Scan → </span>
+    <span class="px-8 py-4 rounded-full border-2 border-green-200 text-green-700 font-semibold text-lg hover:bg-green-50 transition-all inline-block text-center cursor-default"> Learn More </span>
+</div>
+<div class="flex items-center gap-6 mt-10">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-white flex items-center justify-center text-white text-sm">
+🌱
+</div>
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 border-2 border-white flex items-center justify-center text-white text-sm">
+🌿
+</div>
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 border-2 border-white flex items-center justify-center text-white text-sm">
+🌳
+</div>
+</div>
+<div>
+<p class="text-sm font-semibold text-gray-900">50,000+ Happy Gardeners</p>
+<p class="text-xs text-gray-500">Join our growing community</p>
+</div>
+</div>
+</div>
+<div class="relative fade-in stagger-2">
+<div class="floating">
+<div class="relative w-full aspect-square max-w-lg mx-auto">
+<div class="absolute inset-0 bg-gradient-to-br from-green-200 to-green-400 rounded-[3rem] rotate-6 opacity-30"></div>
+<div class="absolute inset-4 bg-gradient-to-br from-green-100 to-green-300 rounded-[2.5rem] -rotate-3 opacity-50"></div>
+<div class="relative bg-white rounded-[2rem] shadow-2xl p-8 h-full flex items-center justify-center">
+<svg class="w-48 h-48 sm:w-64 sm:h-64" viewbox="0 0 200 200"><defs>
+<lineargradient id="plantGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:#22c55e" />
+<stop offset="100%" style="stop-color:#86efac" />
+</lineargradient>
+<lineargradient id="potGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#a3a3a3" />
+<stop offset="100%" style="stop-color:#737373" />
+</lineargradient>
+</defs> <!-- Pot --> <path d="M60 140 L70 180 L130 180 L140 140 Z" fill="url(#potGrad)" /> <ellipse cx="100" cy="140" rx="42" ry="8" fill="#d4d4d4" /> <!-- Soil --> <ellipse cx="100" cy="140" rx="38" ry="6" fill="#78350f" /> <!-- Stem --> <path d="M100 140 Q95 100 100 70" stroke="#15803d" stroke-width="6" fill="none" /> <path d="M100 90 Q90 70 75 65" stroke="#15803d" stroke-width="4" fill="none" /> <path d="M100 80 Q110 60 125 55" stroke="#15803d" stroke-width="4" fill="none" /> <!-- Leaves --> <ellipse cx="70" cy="60" rx="25" ry="15" fill="url(#plantGrad)" transform="rotate(-30 70 60)" /> <ellipse cx="130" cy="50" rx="28" ry="16" fill="url(#plantGrad)" transform="rotate(30 130 50)" /> <ellipse cx="100" cy="40" rx="22" ry="30" fill="url(#plantGrad)" /> <!-- Highlights --> <ellipse cx="95" cy="35" rx="8" ry="15" fill="#bbf7d0" opacity="0.5" /> <ellipse cx="125" cy="48" rx="10" ry="6" fill="#bbf7d0" opacity="0.4" transform="rotate(30 125 48)" />
+</svg>
+</div>
+</div>
+</div><!-- Floating badges -->
+<div class="absolute top-4 right-0 bg-white rounded-2xl shadow-lg p-3 sm:p-4 fade-in stagger-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+✨
+</div>
+<div>
+<p class="text-xs font-semibold text-gray-900">98% Accuracy</p>
+<p class="text-xs text-gray-500">AI Detection</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-0 bg-white rounded-2xl shadow-lg p-3 sm:p-4 fade-in stagger-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
+🏆
+</div>
+<div>
+<p class="text-xs font-semibold text-gray-900">1M+ Scans</p>
+<p class="text-xs text-gray-500">Completed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><!-- Decorative wave -->
+<div class="absolute bottom-0 left-0 right-0">
+<svg viewbox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 50C240 100 480 0 720 50C960 100 1200 0 1440 50V100H0V50Z" fill="white" />
+</svg>
+</div>
+</section><!-- Features Section -->
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">Why Choose PlantWise</span>
+<h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Everything Your Plants Need</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">From instant disease detection to expert care guides, we've got your garden covered.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="card-hover gradient-card rounded-3xl p-8 border border-green-100">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-6 shadow-lg"><span class="text-3xl">🔬</span>
+</div>
+<h3 class="font-display text-xl font-bold text-gray-900 mb-3">AI Disease Detection</h3>
+<p class="text-gray-600">Upload a photo and get instant diagnosis with 98% accuracy. Our AI identifies 500+ plant diseases.</p>
+</div>
+<div class="card-hover gradient-card rounded-3xl p-8 border border-green-100">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center mb-6 shadow-lg"><span class="text-3xl">📚</span>
+</div>
+<h3 class="font-display text-xl font-bold text-gray-900 mb-3">Expert Care Guides</h3>
+<p class="text-gray-600">Access thousands of articles on plant care, soil health, pest control, and sustainable farming.</p>
+</div>
+<div class="card-hover gradient-card rounded-3xl p-8 border border-green-100">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center mb-6 shadow-lg"><span class="text-3xl">👥</span>
+</div>
+<h3 class="font-display text-xl font-bold text-gray-900 mb-3">Vibrant Community</h3>
+<p class="text-gray-600">Connect with fellow plant enthusiasts, share experiences, and get advice from experts.</p>
+</div>
+</div>
+</div>
+</section><!-- Blog Highlights -->
+<section class="py-20 bg-gradient-to-b from-white to-green-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
+<div><span class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">Latest Articles</span>
+<h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900">From Our Blog</h2>
+</div><span class="text-green-600 font-semibold flex items-center gap-2 cursor-default"> View All Articles
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+</svg></span>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<article class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm border border-green-100">
+<div class="aspect-video bg-gradient-to-br from-green-200 to-green-400 flex items-center justify-center"><span class="text-6xl">🌱</span>
+</div>
+<div class="p-6"><span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold mb-3">Plants</span>
+<h3 class="font-display text-lg font-bold text-gray-900 mb-2">10 Indoor Plants That Purify Air Naturally</h3>
+<p class="text-gray-600 text-sm mb-4">Discover the best air-purifying plants that NASA recommends for cleaner indoor air...</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-green-600"></div>
+<div>
+<p class="text-xs font-semibold text-gray-900">Emma Green</p>
+<p class="text-xs text-gray-500">5 min read</p>
+</div>
+</div>
+</div>
+</article>
+<article class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm border border-green-100">
+<div class="aspect-video bg-gradient-to-br from-amber-200 to-amber-400 flex items-center justify-center"><span class="text-6xl">🪴</span>
+</div>
+<div class="p-6"><span class="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-semibold mb-3">Soil</span>
+<h3 class="font-display text-lg font-bold text-gray-900 mb-2">Understanding Soil pH: A Complete Guide</h3>
+<p class="text-gray-600 text-sm mb-4">Learn how soil pH affects plant growth and how to adjust it for optimal results...</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-amber-600"></div>
+<div>
+<p class="text-xs font-semibold text-gray-900">James Root</p>
+<p class="text-xs text-gray-500">8 min read</p>
+</div>
+</div>
+</div>
+</article>
+<article class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm border border-green-100">
+<div class="aspect-video bg-gradient-to-br from-red-200 to-red-400 flex items-center justify-center"><span class="text-6xl">🐛</span>
+</div>
+<div class="p-6"><span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-semibold mb-3">Pest Control</span>
+<h3 class="font-display text-lg font-bold text-gray-900 mb-2">Natural Pest Control Methods That Work</h3>
+<p class="text-gray-600 text-sm mb-4">Chemical-free solutions to protect your plants from common garden pests...</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-red-400 to-red-600"></div>
+<div>
+<p class="text-xs font-semibold text-gray-900">Lisa Bloom</p>
+<p class="text-xs text-gray-500">6 min read</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section><!-- Community Posts Preview -->
+<section class="py-20 bg-green-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
+<div><span class="inline-block px-4 py-2 bg-white text-green-700 rounded-full text-sm font-semibold mb-4">Community</span>
+<h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900">Latest Discussions</h2>
+</div><span class="text-green-600 font-semibold flex items-center gap-2 cursor-default"> Join Community
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+</svg></span>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="card-hover bg-white rounded-2xl p-6 border border-green-100">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold">
+MJ
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<h4 class="font-semibold text-gray-900">Maria Johnson</h4><span class="text-xs text-gray-500">• 2 hours ago</span>
+</div>
+<p class="text-gray-700 mb-3">Help! My monstera leaves are turning yellow. I've been watering it once a week. Any advice? 🌿</p>
+<div class="flex items-center gap-4 text-sm text-gray-500"><span class="flex items-center gap-1">💬 12 comments</span> <span class="flex items-center gap-1">❤️ 24 likes</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-hover bg-white rounded-2xl p-6 border border-green-100">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold">
+DK
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<h4 class="font-semibold text-gray-900">David Kim</h4><span class="text-xs text-gray-500">• 5 hours ago</span>
+</div>
+<p class="text-gray-700 mb-3">Just harvested my first batch of tomatoes using organic methods! So proud of this journey 🍅</p>
+<div class="flex items-center gap-4 text-sm text-gray-500"><span class="flex items-center gap-1">💬 8 comments</span> <span class="flex items-center gap-1">❤️ 56 likes</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><!-- CTA Section -->
+<section class="py-20 bg-white">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="gradient-hero rounded-[3rem] p-12 sm:p-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-green-300 rounded-full blur-3xl opacity-30"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-emerald-300 rounded-full blur-3xl opacity-30"></div>
+<div class="relative">
+<h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Ready to Transform Your Garden?</h2>
+<p class="text-gray-600 text-lg mb-8 max-w-xl mx-auto">Join thousands of plant lovers who trust PlantWise for healthier, happier plants.</p>
+<span class="btn-primary px-10 py-4 rounded-full text-white font-semibold text-lg shadow-xl inline-block cursor-default"> Get Started Free 🌱 </span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-12">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"><span class="text-white text-xl">🌿</span>
+</div><span class="font-display text-xl font-bold">PlantWise</span>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed">Empowering gardeners with AI technology for healthier, happier plants.</p>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Product</h4>
+<ul class="space-y-2 text-gray-400 text-sm">
+<li><span class="hover:text-white transition-colors cursor-default">AI Detection</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Plant Care Blog</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Community</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Dashboard</span></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Resources</h4>
+<ul class="space-y-2 text-gray-400 text-sm">
+<li><span class="hover:text-white transition-colors cursor-default">Help Center</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Plant Database</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Disease Library</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">API Docs</span></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Company</h4>
+<ul class="space-y-2 text-gray-400 text-sm">
+<li><span class="hover:text-white transition-colors cursor-default">About Us</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Careers</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Privacy Policy</span></li>
+<li><span class="hover:text-white transition-colors cursor-default">Terms of Service</span></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+<p class="text-gray-500 text-sm">© 2024 PlantWise. All rights reserved.</p>
+<div class="flex gap-4"><span class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors cursor-default">𝕏</span> <span class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors cursor-default">📷</span> <span class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors cursor-default">▶️</span>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>

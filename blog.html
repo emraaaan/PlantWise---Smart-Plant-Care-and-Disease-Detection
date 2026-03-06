@@ -1,0 +1,346 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantWise Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Outfit', sans-serif; }
+        .font-display { font-family: 'Fraunces', serif; }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.15);
+        }
+        .page { display: none; }
+        .page.active { display: block; }
+    </style>
+</head>
+<body class="bg-white">
+
+<!-- Navigation for standalone blog -->
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-green-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-2" onclick="navigateTo('blog')">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg">
+                    <span class="text-white text-xl">🌿</span>
+                </div>
+                <span class="font-display text-xl font-bold bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">PlantWise Blog</span>
+            </div>
+            <button onclick="navigateTo('blog')" class="px-4 py-2 rounded-full bg-green-600 text-white font-medium hover:bg-green-700 transition-colors">
+                Home
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== BLOG PAGE ==================== -->
+<div id="page-blog" class="page active">
+    <section class="py-12 bg-gradient-to-b from-green-50 to-white min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="font-display text-4xl sm:text-5xl font-bold text-gray-900 mb-4">PlantWise Blog</h1>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Expert insights on plant care, gardening tips, and sustainable practices.</p>
+            </div>
+            
+            <!-- Categories -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="filterBlogs('all')" class="blog-category px-6 py-2 rounded-full bg-green-600 text-white font-medium transition-all" data-category="all">All</button>
+                <button onclick="filterBlogs('plants')" class="blog-category px-6 py-2 rounded-full bg-white text-gray-700 font-medium border border-green-200 hover:bg-green-50 transition-all" data-category="plants">🌱 Plants</button>
+                <button onclick="filterBlogs('soil')" class="blog-category px-6 py-2 rounded-full bg-white text-gray-700 font-medium border border-green-200 hover:bg-green-50 transition-all" data-category="soil">🪴 Soil</button>
+                <button onclick="filterBlogs('farming')" class="blog-category px-6 py-2 rounded-full bg-white text-gray-700 font-medium border border-green-200 hover:bg-green-50 transition-all" data-category="farming">🌾 Farming</button>
+                <button onclick="filterBlogs('pest')" class="blog-category px-6 py-2 rounded-full bg-white text-gray-700 font-medium border border-green-200 hover:bg-green-50 transition-all" data-category="pest">🐛 Pest Control</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div id="blogGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog cards will be rendered here -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ==================== BLOG DETAIL PAGE ==================== -->
+<div id="page-blog-detail" class="page">
+    <article class="pb-20 bg-gradient-to-b from-green-50 to-white min-h-screen">
+        <!-- Header Image -->
+        <div id="blogDetailHeader" class="h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-green-200 to-green-400 flex items-center justify-center">
+            <span class="text-8xl">🌱</span>
+        </div>
+        
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative">
+            <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-12">
+                <span id="blogDetailCategory" class="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">Plants</span>
+                
+                <h1 id="blogDetailTitle" class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-6">10 Indoor Plants That Purify Air Naturally</h1>
+                
+                <!-- Author Info -->
+                <div class="flex items-center gap-4 pb-8 border-b border-gray-100">
+                    <div id="blogDetailAuthorAvatar" class="w-14 h-14 rounded-full bg-gradient-to-br from-green-400 to-green-600"></div>
+                    <div>
+                        <p id="blogDetailAuthorName" class="font-semibold text-gray-900">Emma Green</p>
+                        <p class="text-sm text-gray-500">
+                            <span id="blogDetailDate">March 15, 2024</span> • 
+                            <span id="blogDetailReadTime">5 min read</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div id="blogDetailContent" class="prose prose-green max-w-none mt-8">
+                    <!-- Blog content will be inserted here -->
+                </div>
+
+                <!-- Share -->
+                <div class="mt-12 pt-8 border-t border-gray-100">
+                    <p class="text-sm font-semibold text-gray-700 mb-4">Share this article</p>
+                    <div class="flex gap-3">
+                        <button class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 transition-colors">𝕏</button>
+                        <button class="w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center hover:bg-blue-800 transition-colors">in</button>
+                        <button class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition-colors">📧</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16">
+                <h3 class="font-display text-2xl font-bold text-gray-900 mb-8">Related Articles</h3>
+                <div id="relatedBlogs" class="grid md:grid-cols-2 gap-6">
+                    <!-- Related blogs will be rendered here -->
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button onclick="navigateTo('blog')" class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2 mx-auto">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                    </svg>
+                    Back to Blog
+                </button>
+            </div>
+        </div>
+    </article>
+</div>
+
+<script>
+// ==================== BLOG DATA ====================
+const blogData = [
+    {
+        id: 0,
+        title: '10 Indoor Plants That Purify Air Naturally',
+        category: 'plants',
+        categoryLabel: 'Plants',
+        emoji: '🌱',
+        gradient: 'from-green-200 to-green-400',
+        author: 'Emma Green',
+        authorGradient: 'from-green-400 to-green-600',
+        readTime: '5 min read',
+        date: 'March 15, 2024',
+        excerpt: 'Discover the best air-purifying plants that NASA recommends for cleaner indoor air...',
+        content: `<p class="text-gray-700 text-lg leading-relaxed mb-6">Indoor air pollution is a growing concern, especially in urban environments. Fortunately, nature provides us with beautiful solutions that not only enhance our living spaces but also clean the air we breathe.</p>
+        <h2 class="font-display text-2xl font-bold text-gray-900 mt-8 mb-4">Why Indoor Plants Matter</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">According to NASA's Clean Air Study, certain houseplants can remove up to 87% of air toxins in just 24 hours. These plants absorb harmful gases through their leaves and roots, converting them into nutrients.</p>
+        <h2 class="font-display text-2xl font-bold text-gray-900 mt-8 mb-4">Top Air-Purifying Plants</h2>
+        <ul class="space-y-3 text-gray-700 mb-6">
+            <li class="flex items-start gap-3"><span class="text-green-500">✓</span> <strong>Snake Plant</strong> - Releases oxygen at night, perfect for bedrooms</li>
+            <li class="flex items-start gap-3"><span class="text-green-500">✓</span> <strong>Peace Lily</strong> - Removes benzene, formaldehyde, and carbon monoxide</li>
+            <li class="flex items-start gap-3"><span class="text-green-500">✓</span> <strong>Spider Plant</strong> - Excellent for removing xylene and formaldehyde</li>
+            <li class="flex items-start gap-3"><span class="text-green-500">✓</span> <strong>Boston Fern</strong> - Natural humidifier and air purifier</li>
+            <li class="flex items-start gap-3"><span class="text-green-500">✓</span> <strong>Aloe Vera</strong> - Removes formaldehyde and has healing properties</li>
+        </ul>
+        <div class="bg-green-50 rounded-2xl p-6 my-8 border border-green-100">
+            <p class="text-green-800 font-medium">💡 Pro Tip: For optimal air purification, NASA recommends having at least one plant per 100 square feet of living space.</p>
+        </div>`
+    },
+    {
+        id: 1,
+        title: 'Understanding Soil pH: A Complete Guide',
+        category: 'soil',
+        categoryLabel: 'Soil',
+        emoji: '🪴',
+        gradient: 'from-amber-200 to-amber-400',
+        author: 'James Root',
+        authorGradient: 'from-amber-400 to-amber-600',
+        readTime: '8 min read',
+        date: 'March 12, 2024',
+        excerpt: 'Learn how soil pH affects plant growth and how to adjust it for optimal results...',
+        content: `<p class="text-gray-700 text-lg leading-relaxed mb-6">Soil pH is one of the most important factors affecting plant health, yet it's often overlooked by gardeners. Understanding and managing soil pH can make the difference between thriving plants and struggling ones.</p>
+        <h2 class="font-display text-2xl font-bold text-gray-900 mt-8 mb-4">What is Soil pH?</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">pH measures how acidic or alkaline your soil is on a scale of 0-14. A pH of 7 is neutral, below 7 is acidic, and above 7 is alkaline. Most plants prefer slightly acidic soil between 6.0 and 7.0.</p>
+        <h2 class="font-display text-2xl font-bold text-gray-900 mt-8 mb-4">Why pH Matters</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">Soil pH affects nutrient availability. Even if nutrients are present in the soil, plants can't absorb them if the pH is wrong. This leads to deficiencies and poor growth.</p>`
+    },
+    {
+        id: 2,
+        title: 'Natural Pest Control Methods That Work',
+        category: 'pest',
+        categoryLabel: 'Pest Control',
+        emoji: '🐛',
+        gradient: 'from-red-200 to-red-400',
+        author: 'Lisa Bloom',
+        authorGradient: 'from-red-400 to-red-600',
+        readTime: '6 min read',
+        date: 'March 10, 2024',
+        excerpt: 'Chemical-free solutions to protect your plants from common garden pests...',
+        content: `<p class="text-gray-700 text-lg leading-relaxed mb-6">Protecting your plants from pests doesn't have to mean reaching for harsh chemicals. Natural pest control methods are effective, eco-friendly, and safe for beneficial insects.</p>
+        <h2 class="font-display text-2xl font-bold text-gray-900 mt-8 mb-4">Prevention First</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">The best pest control starts with prevention. Healthy plants are more resistant to pests, so focus on proper watering, nutrition, and sunlight.</p>`
+    },
+    {
+        id: 3,
+        title: 'Sustainable Farming for Small Spaces',
+        category: 'farming',
+        categoryLabel: 'Farming',
+        emoji: '🌾',
+        gradient: 'from-emerald-200 to-emerald-400',
+        author: 'Tom Field',
+        authorGradient: 'from-emerald-400 to-emerald-600',
+        readTime: '7 min read',
+        date: 'March 8, 2024',
+        excerpt: 'How to grow your own food even in limited urban spaces...',
+        content: `<p class="text-gray-700 text-lg leading-relaxed mb-6">You don't need acres of land to grow your own food. With smart techniques and the right approach, even a small balcony can become a productive garden.</p>`
+    },
+    {
+        id: 4,
+        title: 'Common Plant Diseases and How to Spot Them',
+        category: 'plants',
+        categoryLabel: 'Plants',
+        emoji: '🍂',
+        gradient: 'from-orange-200 to-orange-400',
+        author: 'Dr. Sarah Leaf',
+        authorGradient: 'from-orange-400 to-orange-600',
+        readTime: '10 min read',
+        date: 'March 5, 2024',
+        excerpt: 'Early detection is key to saving your plants from common diseases...',
+        content: `<p class="text-gray-700 text-lg leading-relaxed mb-6">Plant diseases can spread quickly if not caught early. Learning to recognize the signs can save your entire garden.</p>`
+    },
+    {
+        id: 5,
+        title: 'Composting 101: Turn Waste into Garden Gold',
+        category: 'soil',
+        categoryLabel: 'Soil',
+        emoji: '♻️',
+        gradient: 'from-lime-200 to-lime-400',
+        author: 'Mike Mulch',
+        authorGradient: 'from-lime-400 to-lime-600',
+        readTime: '5 min read',
+        date: 'March 3, 2024',
+        excerpt: 'Transform kitchen scraps into nutrient-rich compost for healthier plants...',
+        content: `<p class="text-gray-700 text-lg leading-relaxed mb-6">Composting is nature's way of recycling. By composting your kitchen and garden waste, you create free, nutrient-rich soil amendment.</p>`
+    }
+];
+
+// ==================== STATE ====================
+let selectedBlogIndex = 0;
+
+// ==================== NAVIGATION ====================
+function navigateTo(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(`page-${page}`).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ==================== BLOG FUNCTIONS ====================
+function renderBlogGrid(filter = 'all') {
+    const grid = document.getElementById('blogGrid');
+    if (!grid) return;
+    
+    const filtered = filter === 'all' ? blogData : blogData.filter(b => b.category === filter);
+    
+    grid.innerHTML = filtered.map(blog => `
+        <article class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm border border-green-100 cursor-pointer" onclick="showBlogDetail(${blog.id})">
+            <div class="aspect-video bg-gradient-to-br ${blog.gradient} flex items-center justify-center">
+                <span class="text-6xl">${blog.emoji}</span>
+            </div>
+            <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-${blog.category === 'plants' ? 'green' : blog.category === 'soil' ? 'amber' : blog.category === 'pest' ? 'red' : 'emerald'}-100 text-${blog.category === 'plants' ? 'green' : blog.category === 'soil' ? 'amber' : blog.category === 'pest' ? 'red' : 'emerald'}-700 rounded-full text-xs font-semibold mb-3">${blog.categoryLabel}</span>
+                <h3 class="font-display text-lg font-bold text-gray-900 mb-2">${blog.title}</h3>
+                <p class="text-gray-600 text-sm mb-4">${blog.excerpt}</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br ${blog.authorGradient}"></div>
+                    <div>
+                        <p class="text-xs font-semibold text-gray-900">${blog.author}</p>
+                        <p class="text-xs text-gray-500">${blog.readTime}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    `).join('');
+}
+
+function filterBlogs(category) {
+    document.querySelectorAll('.blog-category').forEach(btn => {
+        if (btn.dataset.category === category) {
+            btn.classList.add('bg-green-600', 'text-white');
+            btn.classList.remove('bg-white', 'text-gray-700');
+        } else {
+            btn.classList.remove('bg-green-600', 'text-white');
+            btn.classList.add('bg-white', 'text-gray-700');
+        }
+    });
+    renderBlogGrid(category);
+}
+
+function showBlogDetail(index) {
+    selectedBlogIndex = index;
+    const blog = blogData[index];
+    
+    const header = document.getElementById('blogDetailHeader');
+    if (header) {
+        header.className = `h-64 sm:h-80 lg:h-96 bg-gradient-to-br ${blog.gradient} flex items-center justify-center`;
+        header.innerHTML = `<span class="text-8xl">${blog.emoji}</span>`;
+    }
+    
+    const categoryEl = document.getElementById('blogDetailCategory');
+    if (categoryEl) categoryEl.textContent = blog.categoryLabel;
+    
+    const titleEl = document.getElementById('blogDetailTitle');
+    if (titleEl) titleEl.textContent = blog.title;
+    
+    const authorNameEl = document.getElementById('blogDetailAuthorName');
+    if (authorNameEl) authorNameEl.textContent = blog.author;
+    
+    const authorAvatarEl = document.getElementById('blogDetailAuthorAvatar');
+    if (authorAvatarEl) authorAvatarEl.className = `w-14 h-14 rounded-full bg-gradient-to-br ${blog.authorGradient}`;
+    
+    const dateEl = document.getElementById('blogDetailDate');
+    if (dateEl) dateEl.textContent = blog.date;
+    
+    const readTimeEl = document.getElementById('blogDetailReadTime');
+    if (readTimeEl) readTimeEl.textContent = blog.readTime;
+    
+    const contentEl = document.getElementById('blogDetailContent');
+    if (contentEl) contentEl.innerHTML = blog.content;
+    
+    const related = blogData.filter(b => b.id !== index).slice(0, 2);
+    const relatedEl = document.getElementById('relatedBlogs');
+    if (relatedEl) {
+        relatedEl.innerHTML = related.map(b => `
+            <article class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-green-100 cursor-pointer" onclick="showBlogDetail(${b.id})">
+                <div class="aspect-video bg-gradient-to-br ${b.gradient} flex items-center justify-center">
+                    <span class="text-4xl">${b.emoji}</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-display font-bold text-gray-900 mb-1">${b.title}</h4>
+                    <p class="text-sm text-gray-500">${b.readTime}</p>
+                </div>
+            </article>
+        `).join('');
+    }
+    
+    navigateTo('blog-detail');
+}
+
+// ==================== INITIALIZE ====================
+document.addEventListener('DOMContentLoaded', function() {
+    renderBlogGrid();
+});
+</script>
+
+</body>
+</html>
