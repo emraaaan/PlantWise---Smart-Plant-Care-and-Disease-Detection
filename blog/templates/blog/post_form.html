@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+
+{% block title %}Create Post - PlantWise{% endblock %}
+
+{% block content %}
+
+<section class="card" style="max-width: 720px; margin: 0 auto;">
+    <p class="eyebrow">Create</p>
+    <h1>Share a new post</h1>
+    <p class="hint">Add your title, category, excerpt, and the full content. You can always update it later.</p>
+
+    <form method="post" class="form-stack">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="post-actions">
+            <button class="btn primary" type="submit">Save</button>
+            <a class="btn ghost" href="{% url 'blog:blog_list' %}">Cancel</a>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
+

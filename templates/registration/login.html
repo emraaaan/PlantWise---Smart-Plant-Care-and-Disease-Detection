@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% block title %}Login - PlantWise{% endblock %}
+{% block content %}
+
+<section class="auth-wrap">
+    <div class="card auth-card">
+        <p class="eyebrow">Welcome back</p>
+        <h1>Login</h1>
+        <p class="hint">Sign in to keep tracking your plants and sharing new wins.</p>
+
+        <form method="post" class="form-stack">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn primary" type="submit">Login</button>
+        </form>
+
+        <p class="hint">No account yet?
+            <a href="{% url 'accounts:register' %}">Create one</a>
+        </p>
+    </div>
+</section>
+
+{% endblock %}

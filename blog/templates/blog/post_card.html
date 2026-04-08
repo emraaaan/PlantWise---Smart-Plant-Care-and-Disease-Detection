@@ -1,0 +1,19 @@
+<article class="card post-card">
+    <h2>{{ post.title }}</h2>
+    <div class="post-meta">
+        <span>Author: {{ post.author.username }}</span>
+        <span>Category: {{ post.category }}</span>
+        <span>Date: {{ post.created_at|date:"M d, Y" }}</span>
+    </div>
+    <p>{{ post.excerpt }}</p>
+    <div class="post-actions">
+        <a href="{% url 'blog:post_detail' post.id %}" class="btn primary" style="color:white">Read more</a>
+        {% if user == post.author %}
+            <a href="{% url 'blog:post_update' post.id %}" class="btn ghost" style="color:black">Update</a>
+            <form method='post' action="{% url 'blog:post_delete' post.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn text" style="color: var(--danger);" style="color:red">Delete</button>
+            </form>
+        {% endif %}
+    </div>
+</article>

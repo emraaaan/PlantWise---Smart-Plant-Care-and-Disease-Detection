@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% block title %}Home - PlantWise{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <div>
+        <p class="eyebrow">Smart plant care</p>
+        <h1>Grow with confidence, guided by the PlantWise community.</h1>
+        <p>Share discoveries, track plant health, and swap tips with growers who love lush leaves as much as you do.</p>
+        <div class="hero-actions">
+            <a class="btn primary" href="{% url 'blog:blog_list' %}">Explore the blog</a>
+            {% if user.is_authenticated %}
+                <a class="btn ghost" href="{% url 'blog:post_create' %}">Write a post</a>
+            {% else %}
+                <a class="btn ghost" href="{% url 'accounts:register' %}">Create an account</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hero-panel">
+        <p class="eyebrow">Live pulse</p>
+        <div class="stat-grid">
+            <div class="stat">
+                <div class="value">Leaf</div>
+                <div class="label">Care guides &amp; notes</div>
+            </div>
+            <div class="stat">
+                <div class="value">AI</div>
+                <div class="label">Detection ready</div>
+            </div>
+            <div class="stat">
+                <div class="value">Crew</div>
+                <div class="label">Friendly community</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-title">
+    <div>
+        <p class="eyebrow">Highlights</p>
+        <h2>What you can do here</h2>
+    </div>
+    <a class="btn ghost" href="{% url 'blog:blog_list' %}">View all posts</a>
+</div>
+
+<div class="card-grid">
+    <div class="card">
+        <div class="pill">AI plant insights</div>
+        <h3>Detect issues early</h3>
+        <p class="hint">Use PlantWise to spot pests or stress before they spread. Pair your findings with community advice.</p>
+    </div>
+    <div class="card">
+        <div class="pill">Community blog</div>
+        <h3>Share what works</h3>
+        <p class="hint">Publish quick wins or long-form guides. Others can learn from your experiments and improve theirs.</p>
+    </div>
+    <div class="card">
+        <div class="pill">Profiles</div>
+        <h3>Grow your reputation</h3>
+        <p class="hint">Log in, collect your favorite posts, and start building a trusted plant-care footprint.</p>
+    </div>
+</div>
+
+{% endblock %}

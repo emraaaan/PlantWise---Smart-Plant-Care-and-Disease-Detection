@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% block title %}Delete Post{% endblock %}
+{% block content %}
+
+<section class="card" style="max-width: 640px; margin: 0 auto;">
+    <p class="eyebrow">Danger zone</p>
+    <h2>Delete "{{ post.title }}"?</h2>
+    <p class="hint">This action cannot be undone.</p>
+    <form method="post" action="{% url 'blog:post_delete' post.id %}" class="post-actions">
+        {% csrf_token %}
+        <button type="submit" class="btn primary" style="background: var(--danger); box-shadow: none; color: #fff;">Confirm delete</button>
+        <a href="{% url 'blog:post_detail' post.id %}" class="btn ghost">Cancel</a>
+    </form>
+</section>
+
+{% endblock %}

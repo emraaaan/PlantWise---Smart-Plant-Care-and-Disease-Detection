@@ -1,0 +1,17 @@
+.post-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.post-card h2 {
+    margin-top: 0;
+}
+
+.post-card .read-more {
+    text-decoration: none;
+    color: #2a7ae2;
+    font-weight: bold;
+}

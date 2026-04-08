@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% block title %}Blog - PlantWise{% endblock %}
+{% block content %}
+
+<div class="page-header">
+    <div>
+        <p class="eyebrow">Community feed</p>
+        <h1>Latest blog posts</h1>
+        <p class="hint">Discover plant care wins, experiments, and lessons from fellow growers.</p>
+    </div>
+    <a class="btn primary" href="{% url 'blog:post_create' %}">Create new post</a>
+</div>
+
+<div class="card-grid">
+{% for post in posts %}
+    {% include 'blog/post_card.html' %}
+{% empty %}
+    <div class="card muted-card">No posts yet. Be the first to share!</div>
+{% endfor %}
+</div>
+
+{% endblock %}

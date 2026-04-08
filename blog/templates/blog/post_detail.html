@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% block title %} {{ post.title }} - PlantWise{% endblock %}
+{% block content %}
+
+<article class="card post-detail">
+    <p class="eyebrow">PlantWise blog</p>
+    <h1>{{ post.title }}</h1>
+    <div class="post-meta">
+        <span>Author: {{ post.author.username }}</span>
+        <span>Category: {{ post.category }}</span>
+        <span>Date: {{ post.created_at|date:"M d, Y" }}</span>
+    </div>
+    <p>{{ post.content }}</p>
+    <div class="post-actions">
+        <a class="btn ghost" href="{% url 'blog:blog_list' %}">Back to all posts</a>
+        {% if user == post.author %}
+            <a class="btn primary" href="{% url 'blog:post_update' post.id %}">Edit</a>
+        {% endif %}
+    </div>
+</article>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PlantWise{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{% static 'core/theme.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="bg-aurora"></div>
+    <div class="bg-grid"></div>
+
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a class="brand" href="{% url 'home' %}">PlantWise<span class="badge">Live</span></a>
+            <nav class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="/admin/">Admin</a>
+                <a href="{% url 'blog:blog_list' %}">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                {% if user.is_authenticated %}
+                    <span class="chip">{{ user.username|capfirst }}</span>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn ghost" type="submit">Logout</button>
+                    </form>
+                {% else %}
+                    <a class="btn ghost" href="{% url 'login' %}">Login</a>
+                    <a class="btn primary" href="{% url 'accounts:register' %}">Join</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    {% if messages %}
+        <div class="container message-stack">
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <main class="container page">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <p class="eyebrow">PlantWise</p>
+                <p>Smarter plant care, community-first.</p>
+            </div>
+            <div class="footer-links">
+                <a href="{% url 'blog:blog_list' %}">Blog</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'blog:post_create' %}">Write</a>
+                {% else %}
+                    <a href="{% url 'accounts:register' %}">Get Started</a>
+                {% endif %}
+            </div>
+            <span class="footer-note">&copy; 2026 PlantWise</span>
+        </div>
+    </footer>
+</body>
+</html>
