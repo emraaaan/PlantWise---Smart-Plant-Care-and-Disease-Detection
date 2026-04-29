@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+{% block title %}Detection History - PlantWise{% endblock %}
+{% block content %}
+
+<div class="page-header">
+    <div>
+        <p class="eyebrow">History</p>
+        <h1>Your diagnosis history</h1>
+        <p class="hint">Revisit past scans and see how plants are trending.</p>
+    </div>
+    <a class="btn primary" href="{% url 'detector:diagnose' %}">New scan</a>
+</div>
+
+<div class="card-grid">
+    {% for diagnosis in diagnoses %}
+        <div class="card">
+            <div class="pill">{{ diagnosis.created_at|date:"M d, Y" }}</div>
+            <h3>{{ diagnosis.disease_name|default:"Unknown issue" }}</h3>
+            <p class="hint">{{ diagnosis.plant_name|default:"Plant" }}</p>
+            <p class="hint">Confidence {{ diagnosis.confidence|floatformat:2 }}%</p>
+            <a class="btn text" href="{% url 'detector:diagnosis_result' diagnosis.id %}">View result</a>
+        </div>
+    {% empty %}
+        <div class="card muted-card">
+            No diagnoses yet. Upload a photo to start your first scan.
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

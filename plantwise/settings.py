@@ -10,11 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+<<<<<<< HEAD
+=======
+import os
+>>>>>>> f0764ea (final commit)
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+<<<<<<< HEAD
+=======
+ENV_PATH = BASE_DIR / ".env"
+if ENV_PATH.exists():
+    for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+>>>>>>> f0764ea (final commit)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -39,7 +55,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'core',
+<<<<<<< HEAD
     'blog'
+=======
+    'blog',
+    'detector'
+>>>>>>> f0764ea (final commit)
 ]
 
 MIDDLEWARE = [
@@ -120,4 +141,16 @@ USE_TZ = True
 STATIC_URL = 'static/'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = "home"
+<<<<<<< HEAD
 LOGOUT_REDIRECT_URL = "home"
+=======
+LOGOUT_REDIRECT_URL = "home"
+
+#Image Media
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
+
+KINDWISE_API_URL = os.environ.get("KINDWISE_API_URL", "https://crop.kindwise.com/api/v1")
+KINDWISE_API_KEY = os.environ.get("KINDWISE_API_KEY", "")
+>>>>>>> f0764ea (final commit)

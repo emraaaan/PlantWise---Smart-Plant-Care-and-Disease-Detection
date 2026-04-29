@@ -1,0 +1,13 @@
+{% extends "core/base.html" %}
+
+{% block title %}Check Disease - PlantWise{% endblock %}
+
+{% block content %}
+    <section class="card">
+        <form action="" method="post" enctype="multipart/form-data" class="form-stack">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn primary" type="submit">Submit</button>
+        </form>
+    </section>
+{% endblock %}

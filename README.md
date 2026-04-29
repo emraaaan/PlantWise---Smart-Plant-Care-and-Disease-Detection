@@ -25,6 +25,7 @@ This project is built with **scalability and future AI integration** in mind.
 
 ---
 
+<<<<<<< HEAD
 ## 🧠 Planned AI Features (Upcoming)
 
 PlantWise is being actively developed to include **AI-powered plant disease detection**:
@@ -36,6 +37,15 @@ PlantWise is being actively developed to include **AI-powered plant disease dete
 - 📈 Dataset expansion and model improvement
 
 > The AI module will be integrated as a separate, scalable service to ensure performance and maintainability.
+=======
+## Plant Disease Diagnosis
+
+- Upload plant leaf images
+- Disease detection via KindWise API
+- Confidence score for predictions
+- Disease description and treatment suggestions
+- Diagnosis history per user
+>>>>>>> f0764ea (final commit)
 
 ---
 

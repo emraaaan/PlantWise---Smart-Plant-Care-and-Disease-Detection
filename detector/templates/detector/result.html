@@ -1,0 +1,59 @@
+{% extends "core/base.html" %}
+{% block title %}Diagnosis Result - PlantWise{% endblock %}
+{% block content %}
+
+<section class="page-intro">
+    <div>
+        <p class="eyebrow">Diagnosis</p>
+        <h1>{{ diagnosis.disease_name|default:"Unknown issue" }}</h1>
+        <p class="lead">Analysis completed on {{ diagnosis.created_at|date:"M j, Y" }}</p>
+        <div class="meta-chips">
+            <span class="chip">Confidence {{ diagnosis.confidence|floatformat:2 }}%</span>
+            {% if diagnosis.severity %}
+                <span class="chip">Severity {{ diagnosis.severity|capfirst }}</span>
+            {% endif %}
+            {% if diagnosis.is_healthy %}
+                <span class="chip">Status Healthy</span>
+            {% else %}
+                <span class="chip">Status Needs attention</span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="intro-actions">
+        <a class="btn ghost" href="{% url 'detector:diagnose' %}">Analyze another</a>
+        <a class="btn ghost" href="{% url 'detector:history' %}">View history</a>
+        <a class="btn text" href="{% url 'home' %}">Back home</a>
+    </div>
+</section>
+
+<section class="split">
+    <div class="card">
+        <div class="pill">Summary</div>
+        <h3>{{ diagnosis.plant_name|default:"Plant" }}</h3>
+        <p class="hint">Stored in your history and ready to revisit anytime.</p>
+        <div class="notice">
+            <strong>Tip:</strong> Re-check the plant after treatments to track improvements.
+        </div>
+    </div>
+    <div class="card">
+        <div class="pill">Photo</div>
+        {% if diagnosis.image %}
+            <img class="result-image" src="{{ diagnosis.image.url }}" alt="Uploaded plant">
+        {% else %}
+            <p class="hint">No image available.</p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="card-grid">
+    <div class="card">
+        <div class="pill">Description</div>
+        <p>{{ diagnosis.description|default:"No description available."|linebreaksbr }}</p>
+    </div>
+    <div class="card">
+        <div class="pill">Treatment</div>
+        <p>{{ diagnosis.treatment|default:"No treatment suggestions returned."|linebreaksbr }}</p>
+    </div>
+</section>
+
+{% endblock %}

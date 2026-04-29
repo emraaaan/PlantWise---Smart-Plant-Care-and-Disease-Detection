@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+{% block title %}Check Disease - PlantWise{% endblock %}
+{% block content %}
+
+<section class="page-intro">
+    <div>
+        <p class="eyebrow">Plant scan</p>
+        <h1>Check a plant photo</h1>
+        <p class="lead">Upload a clear leaf or stem photo to analyze possible issues.</p>
+    </div>
+    <div class="intro-actions">
+        <a class="btn ghost" href="{% url 'detector:history' %}">View history</a>
+        <a class="btn ghost" href="{% url 'home' %}">Back home</a>
+    </div>
+</section>
+
+<section class="split">
+    <div class="card">
+        <form method="post" enctype="multipart/form-data" class="form-stack">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn primary" type="submit">Analyze photo</button>
+        </form>
+    </div>
+    <aside class="card subtle">
+        <div class="pill">Quick tips</div>
+        <h3>Get the best results</h3>
+        <p class="hint">Natural light and a focused leaf usually give the most reliable output.</p>
+        <ul class="tip-list">
+            <li>Photograph the damaged area close up.</li>
+            <li>Avoid heavy shadows or strong glare.</li>
+            <li>Include one photo per plant.</li>
+        </ul>
+        <div class="notice">
+            <strong>Note:</strong> Detection results are guidance, not a medical diagnosis for plants.
+        </div>
+    </aside>
+</section>
+
+{% endblock %}
